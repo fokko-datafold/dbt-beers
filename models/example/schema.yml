@@ -29,8 +29,6 @@ models:
     columns:
       - name: brewery_id
         description: "The unique identifier for the brewery"
-        tests:
-          - not_null
       - name: beer_id
       - name: beer_name
         description: The name of the beer
@@ -49,10 +47,10 @@ models:
       - name: brewery_state
         description: State of the brewery
     tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - brewery_id
-            - beer_id
+      # - dbt_utils.unique_combination_of_columns:
+      #     combination_of_columns:
+      #       - brewery_id
+      #       - beer_id
       - unique:
           column_name: "brewery_id || beer_id"
   - name: beers
