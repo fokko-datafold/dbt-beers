@@ -21,6 +21,9 @@ jobs:
       - name: install deps
         run: pip install dbt datafold-sdk
 
+      - name: dbt deps
+        run: dbt deps
+
       - name: run seed
         run: dbt seed --full-refresh --profiles-dir ./
         env:
