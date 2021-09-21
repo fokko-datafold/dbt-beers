@@ -1,6 +1,16 @@
 
 {{ config(
-    materialized="table"
+    materialized="table",
+    pre_hook="""
+        CREATE OR REPLACE TABLE {{ this.database }}.{{ this.schema }}.source_table
+            AS SELECT
+                19          AS foo,
+                'Leden'     AS bar
+            UNION ALL
+                SELECT
+                25          AS foo,
+                'Yes'       AS bar
+    """
 ) }}
 
 SELECT

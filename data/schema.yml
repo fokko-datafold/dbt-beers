@@ -1,0 +1,8 @@
+version: 2
+
+seeds:
+  - name: seed_beers
+    description: Set of beers
+
+  - name: seed_breweries
+    description: Set of breweries

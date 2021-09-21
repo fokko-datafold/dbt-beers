@@ -1,5 +1,16 @@
 version: 2
 
+sources:
+  - name: BEERS_DEV
+    tables:
+      - name: source_table
+        description: This is a documented source table
+        columns:
+          - name: foo
+            description: This is a number
+          - name: bar
+            description: This is a string
+
 models:
   - name: beers_with_breweries
     description: Beers joined with their breweries
