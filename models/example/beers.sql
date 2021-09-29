@@ -4,6 +4,7 @@
 ) }}
 
 SELECT
+
   id            AS beer_id,
   name          AS beer_name,
   style         AS beer_style,
