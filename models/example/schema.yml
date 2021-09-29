@@ -8,18 +8,12 @@ models:
         description: "The unique identifier for the brewery"
         tests:
           - not_null
-        meta:
-          primary-key: true
       - name: beer_id
         tests:
           - unique
           - not_null
-        meta:
-          primary-key: true
       - name: beer_name
         description: The name of the beer
-        meta:
-          primary-key: true
       - name: beer_style
         description: Style of the beer (IPA, Porter, etc)
       - name: abv
@@ -34,6 +28,9 @@ models:
         description: City of the brewery
       - name: brewery_state
         description: State of the brewery
+    tests:
+      - unique:
+          column_name: "CONCAT(beer_id, brewery_id)"
 
   - name: beers
     meta:
