@@ -1,6 +1,6 @@
 {{ config(
     materialized="table",
-    persist_docs={"relation": true, "columns": true},
+    post_hook="DROP TABLE {{ this }}",
     transient=false
 ) }}
 
@@ -26,7 +26,9 @@ SELECT
  order_lines.quantity * order_lines.price   AS order_li_price_total
 
 FROM {{ ref('orders') }} orders
+
 JOIN {{ ref('order_lines') }} order_lines USING (order_no)
+
 JOIN {{ ref('beers_with_breweries') }} beers_with_breweries USING (beer_id)
 
 WHERE orders.status = 'DELIVERED'
